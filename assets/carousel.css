@@ -1,0 +1,77 @@
+/* RaumDesign Rudek — 3D-Zylinder-Karussell (wiederverwendbar)
+   Themebar über --cz-* Custom Properties (auf der Stage oder :root gesetzt). */
+
+.cz-stage{
+  position:absolute; inset:0; z-index:0;
+  display:grid; place-items:center;
+  perspective:var(--cz-persp,1300px); perspective-origin:50% 47%;
+  touch-action:pan-y;
+  opacity:0; transition:opacity 1s var(--cz-ease,cubic-bezier(.16,1,.3,1));
+}
+.cz-stage.cz-ready{opacity:1}
+.cz-cyl{position:relative; width:0; height:0; transform-style:preserve-3d; will-change:transform}
+
+.cz-panel{
+  position:absolute; left:50%; top:50%;
+  width:var(--cz-pw,clamp(160px,18vw,270px));
+  height:calc(var(--cz-pw,220px) * 1.34);
+  margin-left:calc(var(--cz-pw,220px) / -2);
+  margin-top:calc(var(--cz-pw,220px) * 1.34 / -2);
+  transform:translateY(calc(var(--cz-yf,0) * var(--cz-yspan,150px)))
+            rotateY(var(--cz-angle)) translateZ(var(--cz-radius,460px));
+  backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  border-radius:var(--cz-img-radius,8px); overflow:hidden; cursor:pointer;
+  box-shadow:var(--cz-shadow, 0 24px 60px rgba(0,0,0,.5));
+  background:var(--cz-panel-bg,#222);
+}
+.cz-panel img{
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(.7); will-change:filter; transform:scale(1.02);
+}
+.cz-panel figcaption{
+  position:absolute; left:0; right:0; bottom:0; padding:32px 14px 12px;
+  font-family:var(--cz-cap-font, Georgia, serif); font-style:italic; font-size:.9rem; line-height:1.2;
+  color:var(--cz-cap-color,#fff); text-shadow:0 2px 10px rgba(0,0,0,.8);
+  background:linear-gradient(to top, var(--cz-cap-scrim, rgba(0,0,0,.8)), transparent);
+  opacity:0; transition:opacity .45s var(--cz-ease,ease); pointer-events:none;
+}
+.cz-panel.cz-focus figcaption{opacity:1}
+.cz-panel.cz-focus{
+  box-shadow:var(--cz-shadow-focus, 0 30px 80px rgba(0,0,0,.6)), 0 0 64px var(--cz-glow, rgba(255,180,80,.25));
+}
+
+/* Steuerungs-Buttons */
+.cz-ctrl{position:absolute; z-index:5; display:flex; gap:.55rem}
+.cz-ctrl button{
+  width:46px; height:46px; border-radius:50%;
+  border:1px solid var(--cz-ctrl-border, rgba(255,255,255,.25));
+  background:var(--cz-ctrl-bg, rgba(255,255,255,.06)); color:var(--cz-ctrl-fg,#fff);
+  font-size:1.25rem; cursor:pointer; display:grid; place-items:center;
+  transition:transform .3s var(--cz-ease,ease), background .3s, color .3s, border-color .3s;
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+}
+.cz-ctrl button:hover{background:var(--cz-accent,#e36b0a); border-color:transparent; color:#1a1208; transform:translateY(-2px)}
+.cz-ctrl button:focus-visible{outline:2px solid var(--cz-accent,#e36b0a); outline-offset:2px}
+
+/* Lightbox */
+.cz-lb{
+  position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; padding:4vw;
+  background:var(--cz-lb-bg, rgba(10,8,12,.94)); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+}
+.cz-lb.cz-open{display:flex}
+.cz-lb img{max-width:92vw; max-height:86vh; border-radius:6px; box-shadow:0 40px 120px rgba(0,0,0,.7); animation:cz-pop .42s var(--cz-ease,ease)}
+@keyframes cz-pop{from{opacity:0; transform:scale(.94)} to{opacity:1; transform:none}}
+.cz-lb-cap{position:absolute; bottom:3.4vh; left:0; right:0; text-align:center; padding:0 1rem;
+  font-family:var(--cz-cap-font, Georgia, serif); font-style:italic; color:var(--cz-cap-color,#ddd)}
+.cz-lb button{position:absolute; width:54px; height:54px; border-radius:50%; border:0; cursor:pointer;
+  background:rgba(255,255,255,.1); color:#fff; font-size:1.5rem; display:grid; place-items:center; transition:.3s var(--cz-ease,ease)}
+.cz-lb button:hover{background:var(--cz-accent,#e36b0a); color:#1a1208; transform:scale(1.08)}
+.cz-lb-x{top:3vh; right:3vw}
+.cz-lb-prev{left:2.5vw; top:50%; transform:translateY(-50%)}
+.cz-lb-next{right:2.5vw; top:50%; transform:translateY(-50%)}
+.cz-lb-prev:hover,.cz-lb-next:hover{transform:translateY(-50%) scale(1.08)}
+.cz-lb button:focus-visible{outline:2px solid var(--cz-accent,#e36b0a); outline-offset:3px}
+
+@media (prefers-reduced-motion:reduce){
+  .cz-stage{transition:none} .cz-panel img{transition:none}
+}

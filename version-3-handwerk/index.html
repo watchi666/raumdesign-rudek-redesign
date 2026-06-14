@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maler Düsseldorf — RaumDesign Rudek | Wandgestaltung, Spachteltechnik & Renovierung</title>
+<meta name="description" content="Ihr Malerfachbetrieb in Düsseldorf: kreative Wandgestaltung, Spachtel- und Marmortechniken, Tapezieren, Fassaden und Renovierung. Kostenlose Farbberatung mit Musterflächen. Jetzt anrufen: 0162 9353172.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,400..600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HousePainter","name":"RaumDesign Rudek","image":"https://www.raumdesign-rudek.de/","@id":"https://www.raumdesign-rudek.de/","url":"https://www.raumdesign-rudek.de/","telephone":"+4916293553172","email":"raumdesign-rudek@t-online.de","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Kirchstraße 37","postalCode":"40227","addressLocality":"Düsseldorf","addressCountry":"DE"},"areaServed":{"@type":"City","name":"Düsseldorf"},"memberOf":{"@type":"Organization","name":"Handwerkskammer Düsseldorf"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"08:00","closes":"14:00"}],"makesOffer":["Wandgestaltung","Spachteltechnik","Marmorputz","Metalllasur","Tapezierarbeiten","Fassadengestaltung","Fugenlose Bäder","Schimmelsanierung","Renovierung"]}
+</script>
+<style>
+:root{
+  --bg:    oklch(96.2% 0.012 80);
+  --bg-2:  oklch(93.5% 0.018 76);
+  --warm:  oklch(91% 0.028 68);
+  --tint:  oklch(94% 0.045 62);
+  --ink:   oklch(26% 0.022 60);
+  --ink-d: oklch(22% 0.02 55);
+  --soft:  oklch(44% 0.016 60);
+  --mute:  oklch(57% 0.014 62);
+  --or:    oklch(60% 0.17 47);
+  --or-d:  oklch(50% 0.155 46);
+  --or-dd: oklch(42% 0.13 45);
+  --line:  oklch(86% 0.016 74);
+  --line-2:oklch(80% 0.02 72);
+  --ok:    oklch(52% 0.1 150);
+  --shadow:oklch(40% 0.04 50 / .14);
+  --gut: clamp(1.1rem, 4.5vw, 5.5rem);
+  --maxw: 1240px;
+  --e: cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Figtree",system-ui,sans-serif;
+  font-size:clamp(1rem,.96rem+.3vw,1.12rem);line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4{font-family:"Figtree";font-weight:800;line-height:1.05;letter-spacing:-.025em;margin:0;text-wrap:balance}
+p{margin:0 0 1.05em}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--or-d)}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:60;background:color-mix(in oklch,var(--bg) 88%,transparent);backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;transition:.3s}
+header.nav.scrolled{border-color:var(--line);box-shadow:0 4px 20px var(--shadow)}
+.navrow{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.8rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.brand .mk{width:34px;height:34px;border-radius:9px;background:var(--or);display:grid;place-items:center;color:#fff;font-weight:900;font-size:1.1rem;box-shadow:0 4px 12px oklch(60% .17 47/.4)}
+.brand .nm{font-weight:800;font-size:1.1rem;letter-spacing:-.02em;line-height:1}
+.brand .nm small{display:block;font-weight:500;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--mute);margin-top:2px}
+.menu{list-style:none;display:flex;gap:clamp(.7rem,2vw,1.9rem);align-items:center;margin:0;padding:0}
+.menu .ln{display:none}@media(min-width:920px){.menu .ln{display:inline}}
+@media(max-width:560px){.brand .nm small{display:none}.brand .nm{font-size:1rem}.brand .mk{width:30px;height:30px;font-size:1rem}.cta{padding:.5rem .8rem;font-size:.84rem}}
+.menu a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--soft);transition:color .25s}
+.menu a:hover{color:var(--ink)}
+.cta{background:var(--or);color:#fff!important;padding:.6rem 1.15rem;border-radius:10px;font-weight:700!important;
+  display:inline-flex;align-items:center;gap:.4ch;box-shadow:0 6px 16px oklch(60% .17 47/.32);transition:.3s var(--e)}
+.cta:hover{background:var(--or-d);transform:translateY(-2px)}
+
+/* hero */
+.hero{position:relative;overflow:hidden}
+.hero .inner{display:grid;gap:clamp(1.6rem,4vw,3rem);grid-template-columns:1fr;align-items:center;
+  padding-block:clamp(2.5rem,6vw,5rem)}
+@media(min-width:920px){.hero .inner{grid-template-columns:1.05fr .95fr}}
+.hero .copy h1{font-size:clamp(2.3rem,1.4rem+4.5vw,4.4rem);font-weight:800}
+.hero .copy h1 .u{color:var(--or);position:relative;white-space:nowrap}
+.hero .copy h1 .u::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.14em;background:oklch(60% .17 47/.28);border-radius:3px;z-index:-1}
+.hero .copy .sub{font-size:clamp(1.08rem,1rem+.5vw,1.32rem);color:var(--soft);max-width:46ch;margin-top:1.2rem}
+.hero .acts{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.7rem;align-items:center}
+.btn{font-weight:700;text-decoration:none;padding:.85rem 1.5rem;border-radius:12px;transition:transform .3s var(--e),background .3s,box-shadow .3s;display:inline-flex;align-items:center;gap:.5ch;font-size:1rem}
+.btn-p{background:var(--or);color:#fff;box-shadow:0 8px 22px oklch(60% .17 47/.34)}
+.btn-p:hover{background:var(--or-d);transform:translateY(-3px)}
+.btn-s{background:transparent;color:var(--ink);border:1.5px solid var(--line-2)}
+.btn-s:hover{border-color:var(--ink);transform:translateY(-3px)}
+.hero .trustline{display:flex;gap:1.3rem;flex-wrap:wrap;margin-top:1.8rem;font-size:.9rem;color:var(--soft);font-weight:600}
+.hero .trustline span{display:inline-flex;align-items:center;gap:.4ch}
+.hero .trustline .dot{color:var(--ok);font-size:1.05rem}
+.hero .art{position:relative;min-height:clamp(300px,40vw,460px)}
+.hero .art .m{position:absolute;border-radius:14px;overflow:hidden;box-shadow:0 20px 50px var(--shadow)}
+.hero .art .m img{width:100%;height:100%;object-fit:cover}
+.hero .art .big{width:74%;aspect-ratio:4/5;top:0;right:0;transform:rotate(2deg);z-index:2;transition:transform .5s var(--e)}
+.hero .art .sm{width:48%;aspect-ratio:4/3;bottom:0;left:0;transform:rotate(-3deg);z-index:3;border:5px solid var(--bg);transition:transform .5s var(--e)}
+.hero .art .m:hover{transform:rotate(0) scale(1.03);z-index:5}
+.hero .art .badge{position:absolute;bottom:8%;right:-2%;z-index:4;background:var(--ink-d);color:var(--bg);
+  padding:.7rem 1rem;border-radius:12px;box-shadow:0 14px 34px var(--shadow);transform:rotate(-2deg)}
+.hero .art .badge b{display:block;font-size:1.3rem;font-weight:800;color:var(--or)}
+.hero .art .badge span{font-size:.74rem;letter-spacing:.04em}
+
+/* trust bar */
+.trustbar{background:linear-gradient(to bottom,var(--bg),var(--tint));border-block:1px solid var(--line)}
+.trustbar .in{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);max-width:var(--maxw);margin-inline:auto}
+@media(min-width:760px){.trustbar .in{grid-template-columns:repeat(4,1fr)}}
+.trustbar .it{background:var(--tint);padding:clamp(1.3rem,3vw,2rem) clamp(1rem,2vw,1.6rem);text-align:center}
+.trustbar .it b{font-size:clamp(1.5rem,1rem+2vw,2.2rem);font-weight:800;color:var(--or-d);display:block;letter-spacing:-.03em}
+.trustbar .it span{font-size:.86rem;color:var(--soft);font-weight:600}
+
+/* intro */
+.intro{padding-block:clamp(3.5rem,8vw,6.5rem)}
+.intro .in{display:grid;gap:clamp(1.5rem,4vw,3.5rem);grid-template-columns:1fr;align-items:center}
+@media(min-width:880px){.intro .in{grid-template-columns:.95fr 1.05fr}}
+.intro .pic{position:relative}
+.intro .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:16px;transform:rotate(-1.5deg);box-shadow:0 22px 56px var(--shadow);transition:transform .55s var(--e)}
+.intro .pic:hover img{transform:rotate(0) scale(1.02)}
+.intro h2{font-size:clamp(1.7rem,1.2rem+2.6vw,2.9rem)}
+.intro h2 em{font-style:normal;color:var(--or)}
+.intro p{color:var(--soft);max-width:54ch}
+.checks{list-style:none;margin:1.3rem 0 0;padding:0;display:grid;gap:.6rem}
+.checks li{display:flex;gap:.6rem;align-items:flex-start;font-weight:600;color:var(--ink)}
+.checks li::before{content:"✓";color:#fff;background:var(--ok);width:1.4rem;height:1.4rem;border-radius:50%;display:grid;place-items:center;font-size:.8rem;flex:0 0 auto;margin-top:.15rem}
+
+/* services */
+.svc{background:linear-gradient(to bottom,var(--bg) 0%,var(--bg-2) 40%,var(--bg) 100%);padding-block:clamp(3.5rem,8vw,6.5rem)}
+.svc .head{max-width:var(--maxw);margin:0 auto clamp(2rem,4vw,3rem);padding-inline:var(--gut);display:grid;gap:.8rem}
+.svc .head h2{font-size:clamp(1.9rem,1.2rem+3vw,3.3rem)}
+.svc .head p{color:var(--soft);max-width:52ch;margin:0}
+.svc-list{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut);counter-reset:s}
+.svc-item{counter-increment:s;display:grid;grid-template-columns:auto 1fr auto;gap:.3rem clamp(1rem,2.5vw,2rem);align-items:center;
+  padding:clamp(1.2rem,2.6vw,1.8rem) 0;border-top:1px solid var(--line);transition:.4s var(--e)}
+.svc-item:last-child{border-bottom:1px solid var(--line)}
+.svc-item .n{font-weight:800;font-size:1rem;color:var(--or);font-variant-numeric:tabular-nums}
+.svc-item .n::before{content:counter(s,decimal-leading-zero)}
+.svc-item .c h3{font-size:clamp(1.15rem,1rem+.9vw,1.55rem);font-weight:700;margin-bottom:.15rem}
+.svc-item .c p{margin:0;color:var(--soft);font-size:.97rem;max-width:64ch}
+.svc-item .go{color:var(--mute);font-size:1.4rem;transition:transform .35s var(--e),color .35s;justify-self:end}
+.svc-item:hover{transform:translateX(8px)}
+.svc-item:hover .c h3{color:var(--or-d)}
+.svc-item:hover .go{color:var(--or);transform:translateX(5px)}
+
+/* gallery + filter */
+.gal{padding-block:clamp(3.5rem,8vw,6rem)}
+.gal .head{max-width:var(--maxw);margin:0 auto 1.6rem;padding-inline:var(--gut);display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
+.gal .head h2{font-size:clamp(1.9rem,1.2rem+3vw,3.3rem)}
+.gal .head p{margin:.4rem 0 0;color:var(--soft);max-width:40ch}
+.filters{max-width:var(--maxw);margin:0 auto 1.6rem;padding-inline:var(--gut);display:flex;gap:.55rem;flex-wrap:wrap}
+.filters button{font-family:inherit;font-weight:700;font-size:.9rem;border:1.5px solid var(--line-2);background:transparent;color:var(--soft);
+  padding:.5rem 1.05rem;border-radius:100px;cursor:pointer;transition:.3s var(--e)}
+.filters button:hover{border-color:var(--or);color:var(--or-d)}
+.filters button.on{background:var(--ink-d);color:var(--bg);border-color:var(--ink-d)}
+.grid{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut);display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}}
+.grid button{position:relative;border:0;padding:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden;
+  aspect-ratio:1/1;box-shadow:0 6px 18px var(--shadow);transition:transform .4s var(--e),opacity .35s,box-shadow .4s}
+.grid button img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--e)}
+.grid button .cap{position:absolute;left:0;right:0;bottom:0;padding:1.4rem .9rem .8rem;color:#fff;font-weight:700;font-size:.88rem;text-align:left;
+  background:linear-gradient(to top,oklch(20% .02 50/.78),transparent);opacity:0;transition:opacity .35s;z-index:2}
+.grid button .tagchip{position:absolute;top:.6rem;left:.6rem;z-index:2;background:color-mix(in oklch,var(--bg) 85%,transparent);
+  color:var(--or-d);font-size:.68rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:.22rem .55rem;border-radius:100px;opacity:0;transition:opacity .35s}
+.grid button:hover{transform:translateY(-4px);box-shadow:0 16px 38px var(--shadow)}
+.grid button:hover img{transform:scale(1.07)}
+.grid button:hover .cap,.grid button:hover .tagchip{opacity:1}
+.grid button:focus-visible{outline:3px solid var(--or);outline-offset:3px}
+.grid button.hide{display:none}
+
+/* process */
+.process{position:relative;padding-bottom:clamp(4rem,9vw,7rem)}
+.process .bleed{width:100%;height:clamp(280px,38vw,460px);overflow:hidden}
+.process .bleed img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.process .panel{max-width:var(--maxw);margin:clamp(-120px,-9vw,-80px) auto 0;position:relative;z-index:3;background:var(--bg);
+  border-radius:18px;box-shadow:0 30px 70px var(--shadow);padding:clamp(1.8rem,4vw,3.2rem)}
+.process .panel h2{font-size:clamp(1.6rem,1.2rem+2.4vw,2.6rem);margin-bottom:1.6rem}
+.steps{display:grid;gap:1.4rem;grid-template-columns:1fr}
+@media(min-width:680px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step .sn{width:2.6rem;height:2.6rem;border-radius:12px;background:var(--tint);color:var(--or-d);font-weight:800;font-size:1.1rem;display:grid;place-items:center;margin-bottom:.7rem}
+.step h4{font-size:1.15rem;font-weight:700;margin-bottom:.3rem}
+.step p{color:var(--soft);font-size:.95rem;margin:0}
+
+/* CTA band — committed orange slab */
+.ctaband{background:linear-gradient(135deg,var(--or-d),var(--or));color:#fff;position:relative;overflow:hidden}
+.ctaband::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,oklch(75% .14 60/.4),transparent 60%);pointer-events:none}
+.ctaband .in{max-width:var(--maxw);margin-inline:auto;padding:clamp(3rem,7vw,5.5rem) var(--gut);position:relative;z-index:2;
+  display:grid;gap:1.6rem;grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.ctaband .in{grid-template-columns:1.3fr .7fr}}
+.ctaband h2{font-size:clamp(2rem,1.2rem+3.4vw,3.4rem);color:#fff}
+.ctaband p{color:oklch(96% .03 70);max-width:40ch;margin-top:.7rem}
+.ctaband .bigcall{display:inline-flex;align-items:center;gap:.5ch;background:#fff;color:var(--or-d);font-weight:800;font-size:clamp(1.2rem,1rem+1.4vw,1.7rem);
+  text-decoration:none;padding:1rem 1.6rem;border-radius:14px;box-shadow:0 16px 40px oklch(40% .1 45/.4);transition:transform .3s var(--e)}
+.ctaband .bigcall:hover{transform:translateY(-3px)}
+.ctaband .hours{font-size:.92rem;color:oklch(96% .03 70);margin-top:1rem;font-weight:600}
+
+/* contact details */
+.contact{padding-block:clamp(3.5rem,8vw,6rem)}
+.contact .in{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut);display:grid;gap:clamp(1.5rem,4vw,3rem);grid-template-columns:1fr}
+@media(min-width:760px){.contact .in{grid-template-columns:repeat(3,1fr)}}
+.cbox{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:1.6rem}
+.cbox .k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--or-d);font-weight:800;margin-bottom:.5rem}
+.cbox a{text-decoration:none;font-weight:700;font-size:1.1rem}
+.cbox a:hover{color:var(--or-d)}
+.cbox p{margin:0;color:var(--soft)}
+
+footer{background:var(--ink-d);color:oklch(78% .015 70);padding:clamp(2.4rem,5vw,3.2rem) var(--gut) 2rem}
+footer .fr{max-width:var(--maxw);margin-inline:auto;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
+footer .brand .nm{color:oklch(96% .01 70)}
+footer .lg{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.92rem}
+footer a{text-decoration:none;color:oklch(80% .015 70)}footer a:hover{color:var(--or)}
+footer .fine{max-width:var(--maxw);margin:1.8rem auto 0;padding-top:1.3rem;border-top:1px solid oklch(40% .02 60);font-size:.8rem;color:oklch(64% .015 70);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+.lb{position:fixed;inset:0;z-index:100;background:oklch(18% .02 55/.95);display:none;align-items:center;justify-content:center;padding:3vw}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:84vh;border-radius:8px;box-shadow:0 30px 90px oklch(0% 0 0/.55);animation:pop .4s var(--e)}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.lb .cap{position:absolute;bottom:4.5vh;left:0;right:0;text-align:center;color:oklch(94% .01 70);font-weight:600}
+.lb button{position:absolute;background:oklch(95% .01 70/.14);color:#fff;border:0;cursor:pointer;width:52px;height:52px;border-radius:50%;font-size:1.4rem;transition:.3s}
+.lb button:hover{background:var(--or)}
+.lb .x{top:3vh;right:3vw}.lb .prev{left:2vw;top:50%;transform:translateY(-50%)}.lb .next{right:2vw;top:50%;transform:translateY(-50%)}
+.lb .prev:hover,.lb .next:hover{transform:translateY(-50%) scale(1.08)}
+
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s var(--e),transform .7s var(--e)}
+[data-reveal].vis{opacity:1;transform:none}
+[data-reveal-d="1"]{transition-delay:.08s}[data-reveal-d="2"]{transition-delay:.16s}[data-reveal-d="3"]{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}}
+:focus-visible{outline:3px solid var(--or);outline-offset:2px;border-radius:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;z-index:200;background:var(--or);color:#fff;padding:.6rem 1rem;border-radius:8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="nav" id="nav"><div class="wrap navrow">
+  <a class="brand" href="#top"><span class="mk">R</span><span class="nm">RaumDesign Rudek<small>Malerfachbetrieb · Düsseldorf</small></span></a>
+  <nav aria-label="Hauptnavigation"><ul class="menu">
+    <li class="ln"><a href="#leistungen">Leistungen</a></li>
+    <li class="ln"><a href="#galerie">Galerie</a></li>
+    <li class="ln"><a href="#ablauf">Ablauf</a></li>
+    <li><a class="cta" href="tel:+491629353172">☏ 0162 9353172</a></li>
+  </ul></nav>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap inner">
+    <div class="copy" data-reveal>
+      <span class="eyebrow">Ihr Maler in Düsseldorf</span>
+      <h1 style="margin-top:.6rem">Wände, die <span class="u">begeistern</span> — sauber, ehrlich, termingerecht.</h1>
+      <p class="sub">Von der frischen Renovierung bis zur edlen Spachtel- und Marmortechnik: Wir gestalten Ihre Räume, Bäder, Treppenhäuser und Fassaden — mit Sinn für Farbe und geprüften, gesunden Materialien.</p>
+      <div class="acts">
+        <a class="btn btn-p" href="tel:+491629353172">☏ Kostenlos beraten lassen</a>
+        <a class="btn btn-s" href="#galerie">Arbeiten ansehen</a>
+      </div>
+      <div class="trustline">
+        <span><span class="dot">●</span> Handwerkskammer Düsseldorf</span>
+        <span><span class="dot">●</span> Farbberatung mit Musterflächen</span>
+        <span><span class="dot">●</span> Staubarmes Arbeiten</span>
+      </div>
+    </div>
+    <div class="art" data-reveal data-reveal-d="1" aria-hidden="true">
+      <div class="m big"><img src="../assets/img/marmor-wohnzimmer.jpg" alt=""></div>
+      <div class="m sm"><img src="../assets/img/stuccolustro-orange.jpg" alt=""></div>
+      <div class="badge"><b>A–Z</b><span>Malerarbeiten<br>aus einer Hand</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="trustbar" aria-label="Auf einen Blick">
+  <div class="in">
+    <div class="it" data-reveal><b>A–Z</b><span>Alle Malerarbeiten aus einer Hand</span></div>
+    <div class="it" data-reveal data-reveal-d="1"><b>0 €</b><span>Erstberatung &amp; Musterfläche</span></div>
+    <div class="it" data-reveal data-reveal-d="2"><b>HWK</b><span>Mitglied Handwerkskammer Düsseldorf</span></div>
+    <div class="it" data-reveal data-reveal-d="3"><b>Öko</b><span>Geprüfte, emissionsarme Materialien</span></div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap in">
+    <div class="pic" data-reveal><img src="../assets/img/marmor-treppenhaus.jpg" alt="Großflächige Marmor-Spachteltechnik in einem hellen Treppenhaus"></div>
+    <div data-reveal data-reveal-d="1">
+      <span class="eyebrow">Über uns</span>
+      <h2 style="margin-top:.5rem">Ihr kompetenter Partner für <em>Wohnraum- und Wandgestaltung</em></h2>
+      <p>Wir möchten Sie mit einem ausgeprägten Sinn für Gestaltung, der perfekten Ausführung fast vergessener Handwerkstechniken und ökologisch sinnvollen Materialien begeistern. Ob streichen, tapezieren oder glatt spachteln — wir verwirklichen Ihre individuellen Wohnträume.</p>
+      <ul class="checks">
+        <li>Ehrliche Beratung — auch wenn die einfache Lösung die bessere ist</li>
+        <li>Zuverlässige, saubere und termingerechte Ausführung</li>
+        <li>Auf Wunsch Urlaubsrenovierung &amp; Wochenend­service für Gewerbe</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="leistungen">
+  <div class="head">
+    <span class="eyebrow" data-reveal>Unsere Leistungen</span>
+    <h2 data-reveal data-reveal-d="1">Alles rund um Wand, Decke &amp; Fassade</h2>
+    <p data-reveal data-reveal-d="2">Verstehen, was Farbe bewirkt — und es handwerklich sauber umsetzen. Das ist unsere Stärke.</p>
+  </div>
+  <div class="svc-list">
+    <div class="svc-item" data-reveal><span class="n"></span><div class="c"><h3>Kreative Raum- &amp; Wandgestaltung</h3><p>Farbkonzepte mit Gespür für Wirkung — von zurückhaltend bis zum mutigen Statement.</p></div><span class="go">→</span></div>
+    <div class="svc-item" data-reveal><span class="n"></span><div class="c"><h3>Spachtel- &amp; Marmortechniken</h3><p>Glätten, Kalk- und Marmorputze, Stuccolustro — Edeltechniken mit echtem Materialcharakter.</p></div><span class="go">→</span></div>
+    <div class="svc-item" data-reveal><span class="n"></span><div class="c"><h3>Wände &amp; Decken tapezieren</h3><p>Vlies-, Muster- und Strukturtapeten, sauber angesetzt und perfekt im Stoß.</p></div><span class="go">→</span></div>
+    <div class="svc-item" data-reveal><span class="n"></span><div class="c"><h3>Renovierungsanstriche innen &amp; außen</h3><p>Räume, Treppenhäuser und Fassaden frisch und langlebig gestalten.</p></div><span class="go">→</span></div>
+    <div class="svc-item" data-reveal><span class="n"></span><div class="c"><h3>Fugenlose Bäder &amp; Edelputze</h3><p>Tadelakt, Mikrozement und Spachtelböden für nahtlose, wasserfeste Flächen.</p></div><span class="go">→</span></div>
+    <div class="svc-item" data-reveal><span class="n"></span><div class="c"><h3>Schimmel- &amp; Feuchtesanierung</h3><p>Riss- und Putzsanierung, antibakterielle und Schimmelschutzanstriche.</p></div><span class="go">→</span></div>
+    <div class="svc-item" data-reveal><span class="n"></span><div class="c"><h3>Lackierung &amp; Holzschutz</h3><p>Holz-, Metall- und Kunststofflackierung sowie Schutz und Wartung von Holzbauteilen.</p></div><span class="go">→</span></div>
+    <div class="svc-item" data-reveal><span class="n"></span><div class="c"><h3>Farbberatung mit Musterflächen</h3><p>Sehen Sie Ihre Farbe im echten Licht Ihres Raumes — bevor Sie sich entscheiden.</p></div><span class="go">→</span></div>
+  </div>
+</section>
+
+<section class="gal" id="galerie">
+  <div class="head">
+    <div><span class="eyebrow" data-reveal>Galerie</span><h2 data-reveal data-reveal-d="1">Unsere Arbeiten</h2><p data-reveal data-reveal-d="2">Echte Projekte aus Düsseldorf und Umgebung.</p></div>
+  </div>
+  <div class="filters" id="filters" role="tablist" aria-label="Galerie filtern" data-reveal>
+    <button class="on" data-f="all">Alle</button>
+    <button data-f="edel">Edeltechnik</button>
+    <button data-f="bad">Bad &amp; Wellness</button>
+    <button data-f="wohn">Wohnräume</button>
+    <button data-f="fass">Fassade &amp; Flur</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="process" id="ablauf">
+  <div class="bleed"><img src="../assets/img/kueche-gruen.jpg" alt="Frisch gestaltete Küche mit moosgrüner Wand" data-reveal></div>
+  <div class="panel" data-reveal>
+    <span class="eyebrow">So arbeiten wir</span>
+    <h2 style="margin-top:.5rem">In drei Schritten zu Ihrer neuen Wand</h2>
+    <div class="steps">
+      <div class="step" data-reveal><div class="sn">1</div><h4>Anruf &amp; Termin</h4><p>Sie schildern uns Ihr Vorhaben. Wir kommen vorbei, schauen uns die Räume an und beraten ehrlich.</p></div>
+      <div class="step" data-reveal data-reveal-d="1"><div class="sn">2</div><h4>Farbe &amp; Musterfläche</h4><p>Wir entwickeln das Farb- und Technikkonzept und legen auf Wunsch eine Musterfläche an.</p></div>
+      <div class="step" data-reveal data-reveal-d="2"><div class="sn">3</div><h4>Saubere Ausführung</h4><p>Möbel rücken, staubarm arbeiten, termingerecht fertigstellen — und besenrein übergeben.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ctaband">
+  <div class="in">
+    <div data-reveal>
+      <h2>Bereit für einen Raum, der Sie begeistert?</h2>
+      <p>Rufen Sie an — wir besprechen Ihr Projekt unverbindlich und kostenlos.</p>
+      <div class="hours">Mo–Do 8–18 Uhr · Fr 8–14 Uhr</div>
+    </div>
+    <div data-reveal data-reveal-d="1">
+      <a class="bigcall" href="tel:+491629353172">☏ 0162 9353172</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="in">
+    <div class="cbox" data-reveal><div class="k">Telefon</div><a href="tel:+491629353172">0162 9353172</a><p style="margin-top:.4rem">Mo–Do 8–18 · Fr 8–14 Uhr</p></div>
+    <div class="cbox" data-reveal data-reveal-d="1"><div class="k">E-Mail</div><a href="mailto:raumdesign-rudek@t-online.de">raumdesign-rudek@t-online.de</a><p style="margin-top:.4rem">Antwort meist binnen 24 h</p></div>
+    <div class="cbox" data-reveal data-reveal-d="2"><div class="k">Adresse</div><a href="https://maps.google.com/?q=Kirchstraße+37,+40227+Düsseldorf" target="_blank" rel="noopener">Kirchstraße 37<br>40227 Düsseldorf</a><p style="margin-top:.4rem">Mitglied HWK Düsseldorf</p></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="fr">
+    <a class="brand" href="#top"><span class="mk">R</span><span class="nm">RaumDesign Rudek</span></a>
+    <div class="lg">
+      <a href="../impressum.html">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#galerie">Galerie</a>
+      <a href="tel:+491629353172">Anrufen</a>
+    </div>
+  </div>
+  <div class="fine">
+    <span>© 2026 RaumDesign Rudek · Malerfachbetrieb · Kirchstraße 37, 40227 Düsseldorf · USt-IdNr. DE 299/487/192</span>
+    <span>Redesign-Entwurf — Version 3 „Handwerk"</span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Bildansicht">
+  <button class="x" aria-label="Schließen">✕</button>
+  <button class="prev" aria-label="Vorheriges Bild">‹</button>
+  <button class="next" aria-label="Nächstes Bild">›</button>
+  <img id="lbimg" src="" alt=""><div class="cap" id="lbcap"></div>
+</div>
+
+<script>
+const IMAGES=[
+ ["marmor-wohnzimmer","Marmorierte Spachtelwand im Wohnzimmer","edel"],
+ ["spa-bad","Wellnessbad mit Metallic-Spachtelputz","bad"],
+ ["patina-treppenhaus","Patina-Lasur im Treppenhaus","edel"],
+ ["bad-aubergine","Bad in Aubergine mit Sichtmauerwerk","bad"],
+ ["rost-wand","Rost- und Metalllasur als Statement-Wand","edel"],
+ ["kueche-gruen","Küche mit moosgrüner Wandgestaltung","wohn"],
+ ["stuccolustro-orange","Stuccolustro über der Badewanne","bad"],
+ ["wohnen-aubergine","Wohnraum in Aubergine mit Naturstein","wohn"],
+ ["marmor-gold-glanz","Hochglanz-Marmorlasur in Goldtönen","edel"],
+ ["bad-tadelakt","Fugenloses Bad in Tadelakt-Beige","bad"],
+ ["wohnen-plum","Wohnzimmer in tiefem Pflaumenton","wohn"],
+ ["metallic-statement","Metallic-Spachtelwand in Grau & Gold","edel"],
+ ["bad-anthrazit","Anthrazitbad mit Mosaikdetails","bad"],
+ ["marmor-treppenhaus","Marmor-Spachteltechnik im Treppenhaus","edel"],
+ ["renovierung","Frisch renovierter Wohnraum","wohn"],
+ ["tapete-damast","Edle Damast-Mustertapete","wohn"],
+ ["flur-spachtel","Flur mit grauer Spachteltechnik","fass"],
+ ["bad-microcement","Fugenlose Dusche in Mikrozement","bad"],
+ ["fassade","Fassadengestaltung an einem Stadthaus","fass"],
+ ["flur-lasur","Flur mit strukturierter Wischtechnik","fass"],
+ ["marmor-grau","Marmoroptik in Grau als Raumteiler","edel"]
+];
+const LABELS={edel:"Edeltechnik",bad:"Bad",wohn:"Wohnen",fass:"Fassade/Flur"};
+const grid=document.getElementById('grid');
+IMAGES.forEach((im,i)=>{const b=document.createElement('button');b.dataset.cat=im[2];
+  b.innerHTML=`<span class="tagchip">${LABELS[im[2]]}</span><img src="../assets/img/${im[0]}.jpg" alt="${im[1]}" loading="lazy"><span class="cap">${im[1]}</span>`;
+  b.onclick=()=>open(i);grid.appendChild(b)});
+document.getElementById('filters').addEventListener('click',e=>{const btn=e.target.closest('button');if(!btn)return;
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===btn));
+  const f=btn.dataset.f;
+  grid.querySelectorAll('button').forEach(c=>c.classList.toggle('hide',f!=='all'&&c.dataset.cat!==f));});
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbimg'),lbc=document.getElementById('lbcap');let cur=0;
+function visible(){return [...grid.querySelectorAll('button')].filter(b=>!b.classList.contains('hide'))}
+let order=[];
+function open(i){order=visible();const node=grid.querySelectorAll('button')[i];cur=order.indexOf(node);if(cur<0)cur=0;show();lb.classList.add('open');document.body.style.overflow='hidden'}
+function idxOf(node){return [...grid.querySelectorAll('button')].indexOf(node)}
+function show(){const node=order[cur];const i=idxOf(node);lbi.src=`../assets/img/${IMAGES[i][0]}.jpg`;lbi.alt=IMAGES[i][1];lbc.textContent=IMAGES[i][1]}
+function close(){lb.classList.remove('open');document.body.style.overflow=''}
+function step(d){cur=(cur+d+order.length)%order.length;show()}
+lb.querySelector('.x').onclick=close;
+lb.querySelector('.prev').onclick=e=>{e.stopPropagation();step(-1)};
+lb.querySelector('.next').onclick=e=>{e.stopPropagation();step(1)};
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+</script>
+</body>
+</html>

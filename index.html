@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--
+  RaumDesign Rudek · Canvas-Übersicht · Designsprache "Schaufenster-Gold"
+  Drei Design-Konzepte als skalierte Browser-Mockups. Varianten in Unterordnern.
+-->
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RaumDesign Rudek — Drei Konzepte · WebsiteUpgrade</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Spectral:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:          oklch(11% 0.012 78);
+      --bg-up:       oklch(16% 0.014 78);
+      --bg-up-2:     oklch(19% 0.016 78);
+      --border:      oklch(22% 0.016 78);
+      --border-hi:   oklch(32% 0.020 80);
+      --ink:         oklch(93% 0.007 78);
+      --ink-mid:     oklch(58% 0.008 78);
+      --ink-dim:     oklch(36% 0.007 78);
+      --gold:        oklch(78% 0.18 88);
+      --gold-soft:   oklch(78% 0.18 88 / 0.14);
+      --success:     oklch(72% 0.10 150);
+      --font-s:  'Source Sans 3', system-ui, sans-serif;
+      --font-em: 'Spectral', Georgia, serif;
+      --ease:    cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100vh; overflow: hidden; }
+    html { font-size: 16px; }
+    body {
+      position: relative; background: var(--bg); color: var(--ink);
+      font-family: var(--font-s); font-weight: 400; line-height: 1.55;
+      -webkit-font-smoothing: antialiased; display: flex; flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; }
+    .stage-backdrop {
+      position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 8% 12%, oklch(22% 0.13 44 / 0.55), transparent 65%),
+        radial-gradient(ellipse 70% 55% at 92% 75%, oklch(20% 0.10 56 / 0.40), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 50% 96%, oklch(20% 0.10 44 / 0.32), transparent 70%);
+    }
+    .gi { font-family: var(--font-em); font-style: italic; color: var(--gold); font-weight: 400; }
+    .nav { flex-shrink: 0; background: oklch(9% 0.010 78 / 0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1700px; margin: 0 auto; padding: 0 clamp(20px, 3vw, 40px); height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .nav-brand { display: flex; align-items: baseline; gap: 14px; min-width: 0; }
+    .nav-logo { font-family: var(--font-s); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); flex-shrink: 0; }
+    .nav-logo b { color: var(--gold); }
+    .nav-sep { width: 1px; height: 16px; background: var(--border); flex-shrink: 0; }
+    .nav-client { font-family: var(--font-em); font-style: italic; font-weight: 400; font-size: 1rem; color: var(--ink-mid); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nav-right { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
+    .nav-gallery { font-size: 0.82rem; font-weight: 500; color: var(--ink-mid); transition: color 0.18s; border-bottom: 1px solid transparent; padding-bottom: 1px; }
+    .nav-gallery:hover { color: var(--gold); border-bottom-color: var(--gold); }
+    .nav-badge { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); padding: 5px 11px; background: var(--gold-soft); border: 1px solid oklch(78% 0.18 88 / 0.28); }
+    .intro { flex-shrink: 0; max-width: 1700px; width: 100%; margin: 0 auto; padding: clamp(18px, 2.2vh, 28px) clamp(20px, 3vw, 40px); display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; border-bottom: 1px solid var(--border); }
+    .intro-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 8px; }
+    .intro-h { font-family: var(--font-s); font-weight: 600; font-size: clamp(1.3rem, 2.4vw, 2.1rem); line-height: 1.12; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
+    .intro-sub { font-size: 0.92rem; color: var(--ink-mid); max-width: 56ch; line-height: 1.55; margin-top: 6px; }
+    .intro-meta { display: flex; gap: 22px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; }
+    .intro-meta b { color: var(--gold); font-weight: 600; }
+    @media (max-width: 760px) { .intro { grid-template-columns: 1fr; } .intro-meta { display: none; } }
+    .stage { flex: 1; min-height: 0; max-width: 1700px; width: 100%; margin: 0 auto; padding: clamp(14px, 1.8vh, 22px) clamp(20px, 3vw, 40px); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 1.6vw, 26px); }
+    .card { background: var(--bg-up); border: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; transition: border-color 0.22s var(--ease), transform 0.22s var(--ease), box-shadow 0.22s var(--ease); position: relative; }
+    .card:hover { border-color: var(--border-hi); transform: translateY(-2px); box-shadow: 0 18px 44px oklch(6% 0.008 78 / 0.5); }
+    .card.selected { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold-soft), 0 18px 44px oklch(78% 0.18 88 / 0.18); }
+    .card-head { flex-shrink: 0; padding: clamp(14px, 1.6vw, 20px) clamp(16px, 1.8vw, 24px) clamp(12px, 1.4vw, 18px); }
+    .card-eyebrow { display: flex; align-items: center; gap: 10px; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .card-eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--gold); }
+    .card-title { font-family: var(--font-s); font-weight: 600; font-size: clamp(1.1rem, 1.6vw, 1.4rem); line-height: 1.18; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 8px; }
+    .card-desc { font-size: 0.82rem; line-height: 1.55; color: var(--ink-mid); }
+    .card-tags { display: flex; gap: 6px 8px; flex-wrap: wrap; margin-top: 12px; }
+    .card-tag { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.04em; color: var(--ink-mid); padding: 3px 8px; border: 1px solid var(--border-hi); white-space: nowrap; }
+    .card-tag.tag-em { font-family: var(--font-em); font-style: italic; color: var(--gold); border-color: oklch(78% 0.18 88 / 0.28); letter-spacing: 0; }
+    .mockup { flex: 1; min-height: 0; display: flex; flex-direction: column; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .mockup-chrome { flex-shrink: 0; height: 30px; background: var(--bg-up-2); display: flex; align-items: center; gap: 10px; padding: 0 12px; border-bottom: 1px solid var(--border); }
+    .chrome-dots { display: flex; gap: 6px; }
+    .chrome-dots span { width: 9px; height: 9px; border-radius: 50%; background: oklch(30% 0.012 78); }
+    .chrome-url { flex: 1; max-width: 220px; margin: 0 auto; background: var(--bg); border: 1px solid var(--border); padding: 3px 12px; border-radius: 2px; font-family: var(--font-s); font-size: 0.7rem; color: var(--ink-mid); text-align: center; white-space: nowrap; overflow: hidden; }
+    .chrome-url::before { content: '⌂ '; color: var(--gold); margin-right: 4px; font-size: 0.7rem; }
+    .mockup-body { flex: 1; min-height: 0; position: relative; overflow: hidden; background: var(--bg); }
+    .mockup-body iframe { position: absolute; top: 0; left: 0; width: 1440px; border: none; display: block; transform-origin: top left; pointer-events: none; }
+    .mockup-link { position: absolute; inset: 0; z-index: 5; display: block; cursor: zoom-in; }
+    .mockup-link::after { content: 'In voller Größe öffnen →'; position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%) translateY(8px); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: var(--bg); background: var(--gold); padding: 9px 18px; opacity: 0; transition: opacity 0.22s var(--ease), transform 0.22s var(--ease); pointer-events: none; white-space: nowrap; box-shadow: 0 8px 24px oklch(78% 0.18 88 / 0.4); }
+    .mockup-link:hover::after, .mockup-link:focus-visible::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .mockup-link:focus-visible { outline: 2px solid var(--gold); outline-offset: -3px; }
+    .card-foot { flex-shrink: 0; padding: clamp(12px, 1.3vw, 16px) clamp(16px, 1.8vw, 24px); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .card-status { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 500; color: var(--ink-mid); min-width: 0; flex: 1; }
+    .card-status .open-arrow { transition: color 0.18s, transform 0.18s var(--ease); }
+    .card-status:hover .open-arrow { color: var(--gold); transform: translateX(2px); }
+    .card.selected .card-status::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.9rem; }
+    .btn-pick { font-family: var(--font-s); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 8px 16px; cursor: pointer; transition: background 0.18s, color 0.18s, transform 0.22s var(--ease), box-shadow 0.22s var(--ease); white-space: nowrap; min-height: 36px; }
+    .btn-pick:hover { background: var(--gold); color: var(--bg); transform: translateY(-1px); box-shadow: 0 6px 16px oklch(78% 0.18 88 / 0.3); }
+    .card.selected .btn-pick { background: var(--gold); color: var(--bg); }
+    .bottom { flex-shrink: 0; max-width: 1700px; width: 100%; margin: 0 auto; padding: clamp(12px, 1.4vh, 18px) clamp(20px, 3vw, 40px); border-top: 1px solid var(--border); display: grid; grid-template-columns: auto 1fr auto auto; gap: 14px; align-items: center; }
+    .bottom-label { font-family: var(--font-em); font-style: italic; font-size: 0.95rem; color: var(--ink); white-space: nowrap; }
+    .bottom-input { min-width: 0; height: 38px; background: var(--bg); border: 1px solid var(--border); padding: 0 14px; font-family: var(--font-s); font-size: 0.88rem; color: var(--ink); outline: none; transition: border-color 0.18s, box-shadow 0.18s; }
+    .bottom-input::placeholder { color: var(--ink-dim); }
+    .bottom-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+    .btn-save { font-family: var(--font-s); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; background: var(--ink); color: var(--bg); border: 1px solid var(--ink); padding: 0 18px; height: 38px; cursor: pointer; white-space: nowrap; transition: background 0.18s, color 0.18s, border-color 0.18s; }
+    .btn-save:hover { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+    .bottom-status { font-size: 0.74rem; font-weight: 500; color: var(--ink-dim); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .bottom-status.is-set { color: var(--success); }
+    .bottom-status.is-set::before { content: '✓ '; }
+    .toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%) translateY(10px); background: var(--ink); color: var(--bg); font-family: var(--font-s); font-weight: 600; font-size: 0.86rem; padding: 11px 22px; border-radius: 1px; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.22s var(--ease), transform 0.22s var(--ease); box-shadow: 0 12px 32px oklch(6% 0.008 78 / 0.5); }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.show::before { content: '✓ '; color: var(--gold); }
+    @media (max-width: 1100px) {
+      .stage { grid-template-columns: 1fr 1fr; }
+      .stage > .card:nth-child(3) { grid-column: 1 / -1; }
+      .stage > .card:nth-child(3) .mockup-body { min-height: 460px; }
+    }
+    @media (max-width: 760px) {
+      html, body { height: auto; overflow: auto; }
+      .stage { grid-template-columns: 1fr; }
+      .stage > .card:nth-child(3) { grid-column: auto; }
+      .mockup-body { min-height: 480px; }
+      .bottom { position: sticky; bottom: 0; grid-template-columns: 1fr; gap: 10px; background: oklch(9% 0.010 78 / 0.95); backdrop-filter: blur(14px); }
+      .bottom-label { font-size: 1.05rem; }
+      .bottom-status { text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
+  </style>
+</head>
+<body>
+
+<div class="stage-backdrop" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <a class="nav-logo" href="https://website-upgrade.de">Website<b>Upgrade</b></a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <span class="nav-client">RaumDesign Rudek</span>
+    </div>
+    <div class="nav-right">
+      <a class="nav-gallery" href="version-1-colorist/index.html#galerie">Galerie ansehen</a>
+      <span class="nav-badge">Drei Konzepte</span>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div>
+    <p class="intro-eyebrow">Konzept-Übersicht · für Herr Rudek</p>
+    <h1 class="intro-h">Drei Wege, <span class="gi">dasselbe Handwerk</span> zu zeigen.</h1>
+    <p class="intro-sub">Jedes Konzept erzählt dieselbe Geschichte — Ihr Können in Spachtel-, Marmor- und Metalltechniken — aber in grundverschiedener Form, Typografie und Bildsprache. Klicken Sie auf eine Vorschau, um die Variante in voller Größe zu öffnen.</p>
+  </div>
+  <div class="intro-meta">
+    <span><b>3</b> Konzepte</span>
+    <span><b>1</b> Auswahl</span>
+    <span><b>0</b> Risiko</span>
+  </div>
+</section>
+
+<main class="stage" aria-label="Drei Design-Konzepte">
+
+  <article class="card" id="card-a">
+    <div class="card-head">
+      <div class="card-eyebrow">Konzept 01</div>
+      <h2 class="card-title">Der Colorist</h2>
+      <p class="card-desc">Hell und editorial. Der Maler als Colorist: warmes Kreidepapier, große Farbfelder aus echten Pigmenten Ihrer Wände, ruhige Eleganz. Stellt Ihre Farbkompetenz in den Mittelpunkt.</p>
+      <div class="card-tags">
+        <span class="card-tag">Kreidepapier + Pigmente</span>
+        <span class="card-tag tag-em">Bricolage + Hanken Grotesk</span>
+      </div>
+    </div>
+    <div class="mockup">
+      <div class="mockup-chrome">
+        <span class="chrome-dots"><span></span><span></span><span></span></span>
+        <span class="chrome-url">raumdesign-rudek.de</span>
+      </div>
+      <div class="mockup-body" id="mb-a">
+        <iframe src="version-1-colorist/index.html" title="Konzept 01: Der Colorist" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <a class="mockup-link" href="version-1-colorist/index.html" aria-label="Konzept 01 Der Colorist in voller Größe öffnen"></a>
+      </div>
+    </div>
+    <div class="card-foot">
+      <a class="card-status" href="version-1-colorist/index.html"><span>Variante öffnen</span> <span class="open-arrow">→</span></a>
+      <button type="button" class="btn-pick" onclick="pick('a')">Dieses wählen</button>
+    </div>
+  </article>
+
+  <article class="card" id="card-b">
+    <div class="card-head">
+      <div class="card-eyebrow">Konzept 02</div>
+      <h2 class="card-title">Patina</h2>
+      <p class="card-desc">Dunkel und immersiv. Ein Atelier in tiefem Aubergine — die Farbe lebt allein in den großformatigen Fotos. Edel und exklusiv, perfekt für die hochwertigen Edeltechniken.</p>
+      <div class="card-tags">
+        <span class="card-tag">Aubergine + Kreide</span>
+        <span class="card-tag tag-em">Spectral + Albert Sans</span>
+      </div>
+    </div>
+    <div class="mockup">
+      <div class="mockup-chrome">
+        <span class="chrome-dots"><span></span><span></span><span></span></span>
+        <span class="chrome-url">raumdesign-rudek.de</span>
+      </div>
+      <div class="mockup-body" id="mb-b">
+        <iframe src="version-2-patina/index.html" title="Konzept 02: Patina" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <a class="mockup-link" href="version-2-patina/index.html" aria-label="Konzept 02 Patina in voller Größe öffnen"></a>
+      </div>
+    </div>
+    <div class="card-foot">
+      <a class="card-status" href="version-2-patina/index.html"><span>Variante öffnen</span> <span class="open-arrow">→</span></a>
+      <button type="button" class="btn-pick" onclick="pick('b')">Dieses wählen</button>
+    </div>
+  </article>
+
+  <article class="card" id="card-c">
+    <div class="card-head">
+      <div class="card-eyebrow">Konzept 03</div>
+      <h2 class="card-title">Handwerk</h2>
+      <p class="card-desc">Warm, klar und vertrauensbildend. Markenorange als Aktionsfarbe, klare Leistungen, Ablauf in drei Schritten und eine filterbare Galerie — konsequent auf den Anruf optimiert.</p>
+      <div class="card-tags">
+        <span class="card-tag">Kalkputz + Orange</span>
+        <span class="card-tag tag-em">Figtree</span>
+      </div>
+    </div>
+    <div class="mockup">
+      <div class="mockup-chrome">
+        <span class="chrome-dots"><span></span><span></span><span></span></span>
+        <span class="chrome-url">raumdesign-rudek.de</span>
+      </div>
+      <div class="mockup-body" id="mb-c">
+        <iframe src="version-3-handwerk/index.html" title="Konzept 03: Handwerk" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <a class="mockup-link" href="version-3-handwerk/index.html" aria-label="Konzept 03 Handwerk in voller Größe öffnen"></a>
+      </div>
+    </div>
+    <div class="card-foot">
+      <a class="card-status" href="version-3-handwerk/index.html"><span>Variante öffnen</span> <span class="open-arrow">→</span></a>
+      <button type="button" class="btn-pick" onclick="pick('c')">Dieses wählen</button>
+    </div>
+  </article>
+
+</main>
+
+<footer class="bottom">
+  <span class="bottom-label">Nichts davon?</span>
+  <input type="text" class="bottom-input" id="wish-in" placeholder="Beschreiben Sie kurz, was wir anders machen sollen — Farbe, Stimmung, Struktur ...">
+  <button type="button" class="btn-save" onclick="saveWish()">Speichern</button>
+  <span class="bottom-status" id="status">Noch keine Auswahl</span>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  var PROJECT_ID = 'raumdesign-rudek';
+  var LS_KEY = 'wu-canvas-' + PROJECT_ID;
+  var LABELS = { a: 'Der Colorist', b: 'Patina', c: 'Handwerk' };
+  var NUMS = { a: '01', b: '02', c: '03' };
+
+  function scaleOne(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var iframe = el.querySelector('iframe');
+    if (!iframe) return;
+    var scale = el.clientWidth / 1440;
+    iframe.style.transform = 'scale(' + scale + ')';
+    iframe.style.width = '1440px';
+    iframe.style.height = Math.round(el.clientHeight / scale) + 'px';
+  }
+  function scaleAll() { ['mb-a','mb-b','mb-c'].forEach(scaleOne); }
+  scaleAll();
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(scaleAll, 80); });
+
+  var toastTimer;
+  function toast(msg) {
+    var t = document.getElementById('toast'); if (!t) return;
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove('show'); }, 2400);
+  }
+
+  function status(data) {
+    var el = document.getElementById('status'); if (!el) return;
+    if (data && data.choice === 'custom' && data.customText) {
+      el.className = 'bottom-status is-set'; el.textContent = 'Wunsch gespeichert';
+    } else if (data && data.choice && LABELS[data.choice]) {
+      el.className = 'bottom-status is-set'; el.textContent = 'Auswahl: ' + LABELS[data.choice];
+    } else {
+      el.className = 'bottom-status'; el.textContent = 'Noch keine Auswahl';
+    }
+  }
+
+  function applySel(key) {
+    ['a','b','c'].forEach(function (k) {
+      var c = document.getElementById('card-' + k);
+      if (c) c.classList.toggle('selected', k === key);
+    });
+  }
+
+  function pick(key) {
+    applySel(key);
+    var data = { choice: key, customText: '', ts: +new Date() };
+    try { localStorage.setItem(LS_KEY, JSON.stringify(data)); } catch (e) {}
+    status(data);
+    toast('Konzept ' + NUMS[key] + ' · ' + LABELS[key] + ' ausgewählt');
+  }
+
+  function saveWish() {
+    var i = document.getElementById('wish-in');
+    var text = i ? i.value.trim() : '';
+    if (!text) { if (i) i.focus(); return; }
+    applySel(null);
+    var data = { choice: 'custom', customText: text, ts: +new Date() };
+    try { localStorage.setItem(LS_KEY, JSON.stringify(data)); } catch (e) {}
+    status(data);
+    toast('Ihr Wunsch wurde gespeichert');
+  }
+
+  (function () {
+    try {
+      var raw = localStorage.getItem(LS_KEY); if (!raw) return;
+      var d = JSON.parse(raw);
+      if (d.choice && d.choice !== 'custom') { applySel(d.choice); status(d); }
+      else if (d.choice === 'custom' && d.customText) {
+        var i = document.getElementById('wish-in'); if (i) i.value = d.customText;
+        status(d);
+      }
+    } catch (e) {}
+  })();
+
+  var wi = document.getElementById('wish-in');
+  if (wi) wi.addEventListener('keydown', function (e) { if (e.key === 'Enter') saveWish(); });
+</script>
+</body>
+</html>

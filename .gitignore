@@ -1,0 +1,8 @@
+.vercel
+node_modules
+*.log
+.DS_Store
+Thumbs.db
+
+# Rohes Quellmaterial (gescrapte Original-Seiten + Bilder) — nur lokal, nicht veröffentlichen
+quelle/

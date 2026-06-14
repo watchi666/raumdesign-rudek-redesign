@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RaumDesign Rudek — Edeltechniken & Wandkunst aus Düsseldorf</title>
+<meta name="description" content="Atelier für Wandgestaltung in Düsseldorf: Stuccolustro, Marmor- und Metalllasuren, fugenlose Bäder und Spachteltechniken. Fast vergessene Handwerkskunst, neu interpretiert.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Albert+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/carousel.css">
+<style>
+:root{
+  --bg:    oklch(17% 0.028 334);
+  --bg-2:  oklch(20.5% 0.034 332);
+  --bg-warm: oklch(20% 0.03 354);
+  --surface: oklch(24% 0.032 332);
+  --chalk: oklch(92.5% 0.012 82);
+  --soft:  oklch(77% 0.02 340);
+  --mute:  oklch(60% 0.026 340);
+  --terra: oklch(66% 0.135 46);     /* brand, for primary action only */
+  --terra-2: oklch(72% 0.13 48);
+  --line:  oklch(42% 0.03 332 / .55);
+  --line-2: oklch(50% 0.04 332 / .35);
+  --gut: clamp(1.25rem, 5vw, 6.5rem);
+  --maxw: 1300px;
+  --e: cubic-bezier(.16,1,.3,1);
+  /* 3D-Karussell-Theme (dunkel) */
+  --cz-ease:cubic-bezier(.16,1,.3,1);
+  --cz-accent:oklch(72% 0.13 48);
+  --cz-glow:oklch(75% 0.12 60 / .28);
+  --cz-cap-color:oklch(92.5% 0.012 82);
+  --cz-cap-scrim:oklch(8% .02 334 / .85);
+  --cz-cap-font:"Spectral",Georgia,serif;
+  --cz-panel-bg:oklch(20% .02 334);
+  --cz-shadow:0 24px 60px oklch(6% .02 334 / .6);
+  --cz-shadow-focus:0 30px 80px oklch(6% .02 334 / .7);
+  --cz-lb-bg:oklch(9% .015 334 / .94);
+  --cz-ctrl-fg:oklch(92.5% 0.012 82);
+  --cz-ctrl-border:oklch(50% .04 332 / .4);
+  --cz-ctrl-bg:oklch(95% .01 70 / .07);
+  --cz-pw:clamp(150px,16vw,260px);
+  --cz-yspan:clamp(70px,13vh,190px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--chalk);
+  font-family:"Albert Sans",system-ui,sans-serif;font-weight:400;line-height:1.7;
+  font-size:clamp(1rem,.96rem + .3vw,1.1rem);-webkit-font-smoothing:antialiased;
+  background-image:linear-gradient(to bottom,var(--bg) 0%,var(--bg-2) 30%,var(--bg-warm) 55%,var(--bg-2) 78%,var(--bg) 100%);
+  background-attachment:fixed;}
+/* subtle grain */
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E")}
+main,header,footer{position:relative;z-index:2}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:"Spectral",Georgia,serif;font-weight:400;line-height:1.06;margin:0;text-wrap:balance;letter-spacing:-.005em}
+p{margin:0 0 1.1em}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.eyebrow{font-family:"Albert Sans";font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--terra-2)}
+
+/* nav */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+header.nav.scrolled{background:color-mix(in oklch,var(--bg) 80%,transparent);backdrop-filter:blur(14px);border-color:var(--line)}
+.navrow{display:flex;align-items:center;justify-content:space-between;padding-block:1.1rem;gap:1rem}
+.brand{font-family:"Spectral";font-size:1.35rem;letter-spacing:.01em;text-decoration:none;color:var(--chalk)}
+.brand i{font-style:italic;color:var(--terra-2)}
+.menu{list-style:none;display:flex;gap:clamp(.9rem,2.2vw,2.4rem);align-items:center;margin:0;padding:0}
+.menu a{text-decoration:none;color:var(--soft);font-size:.92rem;letter-spacing:.02em;transition:color .3s}
+.menu a:hover{color:var(--chalk)}
+.menu .ln{display:none}@media(min-width:920px){.menu .ln{display:inline}}
+@media(max-width:560px){.brand{font-size:1.12rem}.tel{padding:.42rem .8rem;font-size:.84rem}}
+.tel{font-family:"Albert Sans";font-weight:600;color:var(--chalk)!important;border:1px solid var(--line-2);border-radius:100px;padding:.5rem 1.05rem;transition:.3s var(--e)!important}
+.tel:hover{border-color:var(--terra);color:var(--terra-2)!important}
+
+/* hero */
+.hero{min-height:100svh;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden}
+.cz-spot{position:absolute;left:50%;top:46%;width:min(80vw,940px);height:min(72vh,680px);transform:translate(-50%,-50%);
+  z-index:0;pointer-events:none;background:radial-gradient(ellipse at center, oklch(80% .12 60 / .2) 0%, transparent 62%);filter:blur(8px)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(to top, var(--bg) 1%, oklch(17% .028 334/.5) 38%, oklch(17% .028 334/.18) 70%, transparent 100%)}
+.hero-top{position:relative;z-index:3;align-self:start;padding-top:clamp(6rem,12vh,9rem);pointer-events:none}
+.hero-top .idx{display:flex;gap:1.5rem;align-items:center;color:var(--mute);font-size:.76rem;letter-spacing:.2em;text-transform:uppercase}
+.hero-top .idx::before{content:"";height:1px;width:clamp(40px,8vw,120px);background:var(--line-2)}
+.hero-main{position:relative;z-index:3;align-self:end;padding-bottom:clamp(2.5rem,7vh,5.5rem);pointer-events:none}
+.hero-main h1{font-size:clamp(2.7rem,2rem + 5.5vw,6.6rem);font-weight:300;line-height:1.0;color:var(--chalk)}
+.hero-main h1 i{font-style:italic;color:var(--terra-2)}
+.hero-main .lead{max-width:50ch;color:var(--soft);font-size:clamp(1.05rem,1rem+.5vw,1.35rem);margin-top:1.6rem;font-weight:300}
+.hero-main .acts{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;align-items:center;pointer-events:auto}
+.btn{font-family:"Albert Sans";font-weight:600;text-decoration:none;padding:.9rem 1.7rem;border-radius:100px;transition:transform .35s var(--e),background .35s,color .35s,border-color .35s;font-size:.96rem}
+.btn-p{background:var(--terra);color:oklch(20% .02 40)}
+.btn-p:hover{background:var(--terra-2);transform:translateY(-3px)}
+.btn-l{color:var(--chalk);border:1px solid var(--line-2);background:transparent}
+.btn-l:hover{border-color:var(--chalk);transform:translateY(-3px)}
+.scrollcue{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);writing-mode:vertical-rl;position:absolute;right:var(--gut);bottom:2rem;z-index:2;display:none}
+@media(min-width:1100px){.scrollcue{display:block}}
+.cz-hint{position:absolute;z-index:3;left:50%;bottom:.9rem;transform:translateX(-50%);font-size:.76rem;letter-spacing:.04em;color:var(--mute);pointer-events:none;text-align:center;padding-inline:1rem}
+
+/* manifesto / breathe */
+.manifesto{padding-block:clamp(4.5rem,11vw,9rem);text-align:center}
+.manifesto p{font-family:"Spectral";font-weight:300;font-size:clamp(1.6rem,1rem+3.2vw,3.4rem);line-height:1.22;
+  max-width:24ch;margin-inline:auto;color:var(--chalk)}
+.manifesto p em{font-style:italic;color:var(--terra-2)}
+.manifesto .sub{font-family:"Albert Sans";font-size:1rem;color:var(--mute);max-width:42ch;margin:1.8rem auto 0;letter-spacing:.01em}
+
+/* about: asym, tilted, story float */
+.about{position:relative;padding-bottom:clamp(5rem,11vw,9rem)}
+.about-grid{display:grid;gap:clamp(1.5rem,4vw,3.5rem);grid-template-columns:1fr;align-items:center;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+@media(min-width:900px){.about-grid{grid-template-columns:1fr 1.05fr}}
+.about .ph{position:relative}
+.about .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;transform:rotate(-2.5deg);
+  box-shadow:0 30px 70px oklch(8% .02 332/.6);transition:transform .55s var(--e),box-shadow .55s var(--e)}
+.about .ph:hover img{transform:rotate(0) scale(1.02);box-shadow:0 40px 90px oklch(8% .02 332/.7)}
+.about .ph .float{position:absolute;bottom:-42px;right:-12px;background:var(--surface);border:1px solid var(--line);
+  padding:1.1rem 1.4rem;border-radius:6px;box-shadow:0 20px 50px oklch(8% .02 332/.55);max-width:62%;transform:rotate(1.5deg);transition:transform .5s var(--e)}
+.about .ph .float:hover{transform:rotate(0)}
+.about .ph .float b{font-family:"Spectral";font-size:1.5rem;display:block;color:var(--terra-2)}
+.about .ph .float span{font-size:.82rem;color:var(--soft)}
+.about .tx h2{font-size:clamp(1.8rem,1.2rem+3vw,3.3rem);font-weight:300;margin-bottom:1.2rem}
+.about .tx h2 i{font-style:italic;color:var(--terra-2)}
+.about .tx p{color:var(--soft);font-weight:300;font-size:clamp(1.02rem,1rem+.3vw,1.18rem)}
+.about .tx p:first-letter{}
+
+/* services editorial */
+.svc{max-width:var(--maxw);margin-inline:auto;padding:clamp(3.5rem,8vw,7rem) var(--gut)}
+.svc .head{display:grid;gap:1rem;margin-bottom:clamp(2rem,4vw,3.4rem);max-width:24ch}
+.svc .head h2{font-size:clamp(1.9rem,1.2rem+3vw,3.4rem);font-weight:300}
+.svc .head h2 i{font-style:italic;color:var(--terra-2)}
+.svc-list{counter-reset:s}
+.svc-row{counter-increment:s;display:grid;grid-template-columns:auto 1fr;gap:0 clamp(1rem,3vw,2.6rem);
+  align-items:baseline;padding:clamp(1.5rem,3vw,2.3rem) 0;border-top:1px solid var(--line);transition:.45s var(--e)}
+.svc-row:last-child{border-bottom:1px solid var(--line)}
+.svc-row .n{font-family:"Spectral";font-size:clamp(1.4rem,1rem+1.6vw,2.2rem);color:var(--mute);transition:color .4s}
+.svc-row .c h3{font-family:"Spectral";font-weight:400;font-size:clamp(1.25rem,1rem+1.4vw,2rem);margin-bottom:.35rem}
+.svc-row .c p{color:var(--soft);font-weight:300;max-width:62ch;margin:0}
+.svc-row:hover{background:linear-gradient(to right,oklch(30% .04 350/.4),transparent 80%);transform:translateX(10px);border-radius:6px}
+.svc-row:hover .n,.svc-row:hover h3{color:var(--terra-2)}
+
+/* gallery filmstrip */
+.gal{padding-block:clamp(3rem,7vw,6rem);position:relative}
+.gal .head{max-width:var(--maxw);margin:0 auto clamp(1.6rem,3vw,2.4rem);padding-inline:var(--gut);display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
+.gal .head h2{font-size:clamp(1.8rem,1.2rem+3vw,3.3rem);font-weight:300}
+.gal .head h2 i{font-style:italic;color:var(--terra-2)}
+.gal .head p{margin:0;color:var(--mute);max-width:40ch;font-size:.95rem}
+.strip{display:flex;gap:clamp(.8rem,1.5vw,1.4rem);overflow-x:auto;scroll-snap-type:x mandatory;padding:.5rem var(--gut) 1.5rem;-webkit-overflow-scrolling:touch}
+.strip::-webkit-scrollbar{height:8px}.strip::-webkit-scrollbar-track{background:transparent}
+.strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px}
+.strip button{flex:0 0 auto;scroll-snap-align:center;border:0;background:none;padding:0;cursor:zoom-in;position:relative;
+  border-radius:4px;overflow:hidden;box-shadow:0 18px 44px oklch(8% .02 332/.5);transition:transform .5s var(--e)}
+.strip button img{height:clamp(260px,42vh,460px);width:auto;object-fit:cover;transition:transform .7s var(--e);filter:brightness(.94)}
+.strip button .cap{position:absolute;left:14px;bottom:12px;right:14px;color:var(--chalk);font-family:"Spectral";font-style:italic;
+  font-size:.95rem;opacity:0;transform:translateY(8px);transition:.45s var(--e);text-shadow:0 2px 10px oklch(0% 0 0/.7);z-index:2}
+.strip button::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,oklch(12% .02 334/.7),transparent 50%);opacity:0;transition:opacity .4s}
+.strip button:hover{transform:translateY(-6px)}
+.strip button:hover img{transform:scale(1.05);filter:brightness(1)}
+.strip button:hover .cap,.strip button:hover::after{opacity:1;transform:none}
+.strip button:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+.gal .hint{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut);color:var(--mute);font-size:.82rem;letter-spacing:.04em}
+
+/* feature full bleed + story float */
+.feature{position:relative;margin-top:clamp(3rem,7vw,6rem)}
+.feature .bleed{width:100%;height:clamp(340px,52vw,640px);overflow:hidden}
+.feature .bleed img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.feature .q{max-width:720px;margin:clamp(-160px,-13vw,-120px) auto 0;position:relative;z-index:3;
+  background:linear-gradient(to bottom,var(--surface),oklch(22% .03 334));border:1px solid var(--line);
+  padding:clamp(2.2rem,5vw,3.6rem);border-radius:8px;box-shadow:0 40px 100px oklch(8% .02 332/.6)}
+.feature .q blockquote{margin:0;font-family:"Spectral";font-weight:300;font-style:italic;
+  font-size:clamp(1.3rem,1rem+1.7vw,2rem);line-height:1.32;color:var(--chalk)}
+.feature .q cite{display:block;margin-top:1.4rem;font-family:"Albert Sans";font-style:normal;font-weight:600;font-size:.95rem;color:var(--terra-2)}
+.feature .q cite small{display:block;font-weight:400;color:var(--mute);letter-spacing:.04em}
+
+/* contact — the unexpected cut: a flat dark slab */
+.contact{margin-top:clamp(4rem,9vw,8rem);background:oklch(13% .02 334);border-top:1px solid var(--line)}
+.contact .in{max-width:var(--maxw);margin-inline:auto;padding:clamp(3.5rem,8vw,6.5rem) var(--gut);
+  display:grid;gap:clamp(2rem,5vw,4rem);grid-template-columns:1fr}
+@media(min-width:860px){.contact .in{grid-template-columns:1.15fr .85fr;align-items:center}}
+.contact h2{font-size:clamp(2rem,1.2rem+3.5vw,3.8rem);font-weight:300;line-height:1.05}
+.contact h2 i{font-style:italic;color:var(--terra-2)}
+.contact .big{display:inline-flex;align-items:center;gap:.6ch;margin-top:1.8rem;font-family:"Spectral";font-size:clamp(1.7rem,1rem+3vw,2.8rem);
+  text-decoration:none;color:var(--chalk);transition:color .3s}
+.contact .big:hover{color:var(--terra-2)}
+.contact .sub{color:var(--soft);max-width:40ch;margin-top:1rem;font-weight:300}
+.cmeta{display:grid;gap:1.2rem}
+.cmeta .r{border-left:0;padding-bottom:1.1rem;border-bottom:1px solid var(--line)}
+.cmeta .r:last-child{border-bottom:0}
+.cmeta .k{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-2);display:block;margin-bottom:.25rem}
+.cmeta a{text-decoration:none}.cmeta a:hover{color:var(--terra-2)}
+
+footer{background:oklch(11% .018 334);color:var(--mute);padding:clamp(2.4rem,5vw,3.2rem) var(--gut) 2rem;border-top:1px solid var(--line)}
+footer .fr{max-width:var(--maxw);margin-inline:auto;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
+footer .brand{color:var(--chalk)}
+footer .lg{display:flex;gap:1.3rem;flex-wrap:wrap;font-size:.9rem}
+footer a{text-decoration:none}footer a:hover{color:var(--terra-2)}
+footer .fine{max-width:var(--maxw);margin:1.8rem auto 0;padding-top:1.3rem;border-top:1px solid var(--line);font-size:.78rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:oklch(10% .015 334/.97);display:none;align-items:center;justify-content:center;padding:3vw}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:84vh;border-radius:4px;box-shadow:0 30px 90px oklch(0% 0 0/.7);animation:pop .45s var(--e)}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.lb .cap{position:absolute;bottom:4.5vh;left:0;right:0;text-align:center;color:var(--soft);font-family:"Spectral";font-style:italic}
+.lb button{position:absolute;background:oklch(95% .01 70/.1);color:var(--chalk);border:0;cursor:pointer;width:52px;height:52px;border-radius:50%;font-size:1.4rem;transition:.3s}
+.lb button:hover{background:var(--terra);color:oklch(18% .02 40)}
+.lb .x{top:3vh;right:3vw}.lb .prev{left:2vw;top:50%;transform:translateY(-50%)}.lb .next{right:2vw;top:50%;transform:translateY(-50%)}
+.lb .prev:hover,.lb .next:hover{transform:translateY(-50%) scale(1.08)}
+
+[data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .8s var(--e),transform .8s var(--e)}
+[data-reveal].vis{opacity:1;transform:none}
+[data-reveal-d="1"]{transition-delay:.1s}[data-reveal-d="2"]{transition-delay:.2s}[data-reveal-d="3"]{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}body{background-attachment:scroll}}
+:focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;z-index:200;background:var(--terra);color:oklch(18% .02 40);padding:.6rem 1rem;border-radius:6px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="nav" id="nav"><div class="wrap navrow">
+  <a class="brand" href="#top">RaumDesign <i>Rudek</i></a>
+  <nav aria-label="Hauptnavigation"><ul class="menu">
+    <li class="ln"><a href="#atelier">Atelier</a></li>
+    <li class="ln"><a href="#leistungen">Techniken</a></li>
+    <li class="ln"><a href="#galerie">Galerie</a></li>
+    <li><a class="tel" href="tel:+491629353172">0162 9353172</a></li>
+  </ul></nav>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="cz-spot" aria-hidden="true"></div>
+  <div class="cz-stage" id="czStage" aria-label="3D-Karussell ausgewählter Arbeiten"></div>
+  <div class="hero-top wrap"><div class="idx">Malerfachbetrieb · Düsseldorf · Edeltechniken</div></div>
+  <div class="hero-main wrap">
+    <h1>Oberflächen, die <i>Geschichten</i> tragen.</h1>
+    <p class="lead">Stuccolustro, Marmor- und Metalllasuren, fugenlose Bäder. Wir führen fast vergessene Handwerkstechniken aus — mit Materialien direkt aus ihren Herstellungsländern.</p>
+    <div class="acts">
+      <a class="btn btn-p" href="#galerie">Galerie entdecken</a>
+      <a class="btn btn-l" href="#kontakt">Projekt besprechen</a>
+    </div>
+  </div>
+  <div class="cz-ctrl" style="bottom:clamp(1rem,3vh,2rem);right:clamp(1rem,4vw,3rem)">
+    <button id="czPrev" aria-label="Zurück drehen">‹</button>
+    <button id="czNext" aria-label="Weiter drehen">›</button>
+  </div>
+  <span class="cz-hint">Ziehen oder Pfeile · Klick öffnet das Bild groß</span>
+</section>
+
+<section class="manifesto">
+  <div class="wrap">
+    <p data-reveal>Wir verstehen Wände nicht als Fläche, sondern als <em>Material mit Tiefe.</em></p>
+    <p class="sub" data-reveal data-reveal-d="1">Jede Oberfläche entsteht von Hand. Keine Tapete vom Meter, kein Effekt von der Rolle — sondern Putz, Lasur und Pigment, Schicht für Schicht aufgetragen.</p>
+  </div>
+</section>
+
+<section class="about" id="atelier">
+  <div class="about-grid">
+    <div class="ph" data-reveal>
+      <img src="../assets/img/marmor-gold-glanz.jpg" alt="Hochglänzende Marmorlasur in warmen Goldtönen, spiegelnde Oberfläche">
+      <div class="float"><b>A–Z</b><span>Ihr Partner für Malerarbeiten von der Beratung bis zur letzten Schicht.</span></div>
+    </div>
+    <div class="tx" data-reveal data-reveal-d="1">
+      <h2>Ein Atelier für <i>Wand­gestaltung</i></h2>
+      <p>Innovative Putz- und Spachteltechniken, über Jahrhunderte überlieferte Handwerkskunst und auserlesene Materialien lassen ein ganz besonderes Ergebnis für ein faszinierendes Wohnerlebnis entstehen.</p>
+      <p>Ob Sie eine Wand streichen, tapezieren oder glatt spachteln lassen möchten — wir verwirklichen Ihre individuellen Wohnträume, mit einem ausgeprägten Sinn für Gestaltung und ökologisch sinnvollen Materialien.</p>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="leistungen">
+  <div class="head" data-reveal>
+    <span class="eyebrow">Techniken &amp; Leistungen</span>
+    <h2>Was bei uns von <i>Hand</i> entsteht</h2>
+  </div>
+  <div class="svc-list">
+    <div class="svc-row" data-reveal><span class="n">01</span><div class="c"><h3>Spachtel- &amp; Marmortechniken</h3><p>Glätten, Kalk- und Marmorputze, Stuccolustro und Marmorino — Oberflächen mit echter Tiefe, von matt bis spiegelnd glänzend.</p></div></div>
+    <div class="svc-row" data-reveal><span class="n">02</span><div class="c"><h3>Metall- &amp; Patinalasuren</h3><p>Rost-, Kupfer- und Oxid-Effekte als großflächige Statement-Wand. Jede Wand ein Unikat, das mit dem Licht arbeitet.</p></div></div>
+    <div class="svc-row" data-reveal><span class="n">03</span><div class="c"><h3>Fugenlose Bäder &amp; Wellness</h3><p>Tadelakt, Mikrozement und Spachtelböden — nahtlos, wasserfest und angenehm warm unter Hand und Fuß.</p></div></div>
+    <div class="svc-row" data-reveal><span class="n">04</span><div class="c"><h3>Tapezierarbeiten</h3><p>Wände und Decken — von der edlen Mustertapete bis zur Strukturtapete, präzise im Stoß angesetzt.</p></div></div>
+    <div class="svc-row" data-reveal><span class="n">05</span><div class="c"><h3>Renovierung innen &amp; außen</h3><p>Räume, Fassaden und Treppenhäuser gestalten — Renovierungsanstriche mit geprüften, emissionsarmen Farben.</p></div></div>
+    <div class="svc-row" data-reveal><span class="n">06</span><div class="c"><h3>Sanierung &amp; Schutz</h3><p>Riss-, Putz- und Schimmelsanierung, antibakterielle Anstriche, Holz-, Metall- und Kunststofflackierung.</p></div></div>
+  </div>
+</section>
+
+<section class="gal" id="galerie">
+  <div class="head">
+    <div data-reveal><span class="eyebrow">Galerie</span><h2 style="margin-top:.4rem">Aus­gewählte <i>Arbeiten</i></h2></div>
+    <p data-reveal data-reveal-d="1">Wohnräume, Bäder, Treppenhäuser und Fassaden. Wischen Sie seitlich — tippen für die große Ansicht.</p>
+  </div>
+  <div class="strip" id="strip"></div>
+  <p class="hint">← Seitlich scrollen für mehr Arbeiten</p>
+</section>
+
+<section class="feature">
+  <div class="bleed"><img src="../assets/img/patina-treppenhaus.jpg" alt="Dramatische, mehrschichtige Patina-Lasur über die gesamte Höhe eines Treppenhauses" data-reveal></div>
+  <div class="q" data-reveal>
+    <blockquote>„Mit Farbe, Kalkhaftputzen oder Tapeten schaffen wir eine kreative Wand- und Decken­lösung, die jeden Raum mit ihrer Exklusivität zu einem ästhetischen Highlight werden lässt."</blockquote>
+    <cite>Daniel Rudek<small>Inhaber · RaumDesign Rudek</small></cite>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="in">
+    <div data-reveal>
+      <span class="eyebrow">Kontakt</span>
+      <h2>Erzählen Sie uns von Ihrem <i>Raum.</i></h2>
+      <p class="sub">Wir beraten Sie ehrlich, legen auf Wunsch Musterflächen an und arbeiten sauber, zuverlässig und termingerecht. Am direktesten erreichen Sie uns telefonisch.</p>
+      <a class="big" href="tel:+491629353172">☏ 0162 9353172</a>
+    </div>
+    <div class="cmeta" data-reveal data-reveal-d="1">
+      <div class="r"><span class="k">Adresse</span>Kirchstraße 37<br>40227 Düsseldorf</div>
+      <div class="r"><span class="k">E-Mail</span><a href="mailto:raumdesign-rudek@t-online.de">raumdesign-rudek@t-online.de</a></div>
+      <div class="r"><span class="k">Öffnungszeiten</span>Mo–Do 8–18 Uhr · Fr 8–14 Uhr<br>Sa &amp; So geschlossen</div>
+      <div class="r"><span class="k">Mitglied</span>Handwerkskammer Düsseldorf</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="fr">
+    <a class="brand" href="#top" style="text-decoration:none">RaumDesign <i style="color:var(--terra-2)">Rudek</i></a>
+    <div class="lg">
+      <a href="../impressum.html">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+  <div class="fine">
+    <span>© 2026 RaumDesign Rudek · Malerfachbetrieb · Kirchstraße 37, 40227 Düsseldorf</span>
+    <span>Redesign-Entwurf — Version 2 „Patina"</span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Bildansicht">
+  <button class="x" aria-label="Schließen">✕</button>
+  <button class="prev" aria-label="Vorheriges Bild">‹</button>
+  <button class="next" aria-label="Nächstes Bild">›</button>
+  <img id="lbimg" src="" alt=""><div class="cap" id="lbcap"></div>
+</div>
+
+<script>
+const IMAGES=[
+ ["patina-treppenhaus","Patina-Lasur im Treppenhaus, Feuer- und Kupfertöne"],
+ ["spa-bad","Wellnessbad mit Metallic-Spachtelputz und Mosaik"],
+ ["marmor-wohnzimmer","Marmorierte Spachtelwand im Wohnraum"],
+ ["rost-wand","Rost- und Metalllasur als Statement-Wand"],
+ ["stuccolustro-orange","Stuccolustro in leuchtendem Terrakotta"],
+ ["marmor-gold-glanz","Hochglanz-Marmorlasur in Goldtönen"],
+ ["bad-aubergine","Bad in Aubergine mit Sichtmauerwerk"],
+ ["metallic-statement","Metallic-Spachtelwand in Grau & Gold"],
+ ["marmor-treppenhaus","Marmor-Spachteltechnik im Treppenhaus"],
+ ["bad-tadelakt","Fugenloses Bad in Tadelakt-Beige"],
+ ["kueche-gruen","Küche mit moosgrüner Wandgestaltung"],
+ ["wohnen-aubergine","Wohnraum in Aubergine mit Naturstein"],
+ ["bad-anthrazit","Anthrazitbad mit Mosaikdetails"],
+ ["marmor-grau","Marmoroptik in Grau als Raumteiler"],
+ ["tapete-damast","Edle Damast-Mustertapete"],
+ ["wohnen-plum","Wohnzimmer in tiefem Pflaumenton"],
+ ["flur-spachtel","Flur mit grauer Spachteltechnik"],
+ ["fassade","Fassadengestaltung an einem Stadthaus"]
+];
+const strip=document.getElementById('strip');
+IMAGES.forEach((im,i)=>{const b=document.createElement('button');
+  b.innerHTML=`<img src="../assets/img/${im[0]}.jpg" alt="${im[1]}" loading="lazy"><span class="cap">${im[1]}</span>`;
+  b.onclick=()=>open(i);strip.appendChild(b)});
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbimg'),lbc=document.getElementById('lbcap');let cur=0;
+function open(i){cur=i;show();lb.classList.add('open');document.body.style.overflow='hidden'}
+function show(){lbi.src=`../assets/img/${IMAGES[cur][0]}.jpg`;lbi.alt=IMAGES[cur][1];lbc.textContent=IMAGES[cur][1]}
+function close(){lb.classList.remove('open');document.body.style.overflow=''}
+function step(d){cur=(cur+d+IMAGES.length)%IMAGES.length;show()}
+lb.querySelector('.x').onclick=close;
+lb.querySelector('.prev').onclick=e=>{e.stopPropagation();step(-1)};
+lb.querySelector('.next').onclick=e=>{e.stopPropagation();step(1)};
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')close();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+</script>
+<script src="../assets/carousel.js"></script>
+<script>
+RDCarousel.init({
+  stage:'#czStage', base:'../assets/img/',
+  prevBtn:document.getElementById('czPrev'), nextBtn:document.getElementById('czNext'),
+  images:[
+    ["patina-treppenhaus","Patina-Lasur im Treppenhaus"],
+    ["marmor-wohnzimmer","Marmorierte Spachtelwand"],
+    ["spa-bad","Wellnessbad mit Metallic-Putz"],
+    ["rost-wand","Rost- & Metalllasur"],
+    ["marmor-gold-glanz","Hochglanz-Marmorlasur in Gold"],
+    ["stuccolustro-orange","Stuccolustro in Terrakotta"],
+    ["metallic-statement","Metallic-Spachtelwand"],
+    ["bad-aubergine","Bad in Aubergine"],
+    ["marmor-treppenhaus","Marmor-Spachteltechnik"],
+    ["bad-tadelakt","Fugenloses Tadelakt-Bad"],
+    ["wohnen-aubergine","Wohnraum in Aubergine"],
+    ["tapete-damast","Edle Damast-Mustertapete"]
+  ],
+  options:{ wheel:false, autoplay:0.05, brightnessBack:0.42, maxBlur:7 }
+});
+</script>
+</body>
+</html>
