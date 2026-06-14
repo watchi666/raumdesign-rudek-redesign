@@ -66,12 +66,14 @@ node serve.mjs    # dann http://localhost:3050/  (Canvas) bzw. /version-1-colori
 ```
 raumdesign-rudek_redesign_Fable5/
 ├─ index.html             # ← Canvas-Übersicht (3 Konzepte nebeneinander)
+├─ impressum.html         # sauberes Impressum (Footer-Verlinkung)
 ├─ assets/img/            # 24 kuratierte Bilder (sprechende Namen)
-├─ quelle/                # Originalquelle: HTML der Unterseiten + bilder/ (29 Motive)
-├─ version-1-colorist/    # Redesign V1
-├─ version-2-patina/      # Redesign V2
+├─ assets/carousel.css|js # wiederverwendbares 3D-Zylinder-Karussell (Hero V1+V2)
+├─ version-1-colorist/    # Redesign V1 (Karussell-Hero)
+├─ version-2-patina/      # Redesign V2 (Karussell-Hero)
 ├─ version-3-handwerk/    # Redesign V3
-├─ experiment-3d-karussell/ # Experiment: 3D-Zylinder-Hero (Wheel-Steuerung, Zentrifugal-Wölbung)
+├─ experiment-3d-karussell/ # Experiment: 3D-Zylinder mit Mausrad-Vollsteuerung
 ├─ serve.mjs              # kleiner lokaler Vorschau-Server
+├─ quelle/                # NUR lokal: rohes Quellmaterial — aus Git & Deploy ausgeschlossen
 └─ README.md
 ```
